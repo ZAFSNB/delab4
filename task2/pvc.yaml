@@ -1,0 +1,14 @@
+# Запрос хранилища (PersistentVolumeClaim) — задание 2, п. 6.
+# PVC — это заявка на том; сам PersistentVolume (PV) создаётся автоматически
+# (dynamic provisioning) стандартным StorageClass кластера kind.
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: lab4-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce            # том монтируется на чтение-запись к одной ноде
+  resources:
+    requests:
+      storage: 1Gi             # запрашиваемый объём
+  storageClassName: standard   # StorageClass по умолчанию в kind

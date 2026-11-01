@@ -1,0 +1,37 @@
+# Под с двумя томами (задание 2, п. 6):
+#   * /data  — постоянный том на основе PVC (данные сохраняются при пересоздании пода);
+#   * /cache — временный emptyDir (удаляется вместе с подом).
+apiVersion: v1
+kind: Pod
+metadata:
+  name: lab4-volume-demo
+  labels:
+    app: lab4-volume-demo
+spec:
+  containers:
+    - name: writer
+      image: busybox:1.36
+      command:
+        - sh
+        - -c
+        - |
+          echo "[$(date -Iseconds)] pod started" >> /data/log.txt
+          echo "=== содержимое постоянного тома /data/log.txt ==="
+          cat /data/log.txt
+          echo "=== проверка временного тома /cache ==="
+          echo "temporary data" > /cache/tmp.txt
+          cat /cache/tmp.txt
+          echo "=== точка монтирования ==="
+          mount | grep -E "data|cache"
+          sleep 3600
+      volumeMounts:
+        - name: data
+          mountPath: /data
+        - name: cache
+          mountPath: /cache
+  volumes:
+    - name: data
+      persistentVolumeClaim:
+        claimName: lab4-pvc
+    - name: cache
+      emptyDir: {}

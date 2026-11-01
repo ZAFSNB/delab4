@@ -1,0 +1,13 @@
+# Конфигурация локального кластера kind (Kubernetes IN Docker)
+#
+# Кластер состоит из трёх узлов-контейнеров:
+#   * 1 control-plane (управляющий узел: API-сервер, etcd, scheduler, controller-manager);
+#   * 2 worker-узла (рабочие узлы, на которых запускаются поды).
+# Многоузловая конфигурация позволяет показать распределение подов по узлам.
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: lab4
+nodes:
+  - role: control-plane
+  - role: worker
+  - role: worker

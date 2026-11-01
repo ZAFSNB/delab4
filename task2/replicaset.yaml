@@ -1,0 +1,31 @@
+# ReplicaSet — коллекция подов с заданным числом реплик (задание 2, п. 7).
+# Контроллер постоянно сравнивает фактическое число подов с желаемым (replicas)
+# и создаёт/удаляет поды, чтобы привести состояние к заданному.
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: lab4-rs
+  labels:
+    app: lab4-rs
+spec:
+  replicas: 3                  # желаемое количество подов
+  selector:                    # какие поды «принадлежат» этому ReplicaSet
+    matchLabels:
+      app: lab4-rs
+  template:                    # шаблон создаваемого пода
+    metadata:
+      labels:
+        app: lab4-rs
+    spec:
+      containers:
+        - name: web
+          image: nginx:1.27-alpine
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 200m
+              memory: 128Mi
