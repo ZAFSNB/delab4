@@ -283,21 +283,53 @@ lab4-rs-wzs9s   1/1     Running   4m12s   10.244.2.4   lab4-worker
 ## 4. Скриншоты
 
 - `images/01-structure.png` — структура репозитория;
+
+![структура репозитория](images/01-structure.png)
 - `images/02-versions.png` — версии `kubectl` и `kind`;
+
+![версии kubectl и kind](images/02-versions.png)
 - `images/03-kind-config.png` — `task1/kind-config.yaml`;
+
+![task1/kind-config.yaml](images/03-kind-config.png)
 - `images/04-cluster-create.png` — создание кластера (`kind create cluster`);
+
+![создание кластера (kind create cluster)](images/04-cluster-create.png)
 - `images/05-cluster-info.png` — `kubectl cluster-info`;
+
+![kubectl cluster-info](images/05-cluster-info.png)
 - `images/06-nodes.png` — `kubectl get nodes -o wide` (три узла Ready);
+
+![kubectl get nodes -o wide (три узла Ready)](images/06-nodes.png)
 - `images/07-namespaces.png` — `kubectl get ns`;
+
+![kubectl get ns](images/07-namespaces.png)
 - `images/08-api-resources.png` — `kubectl api-resources`;
+
+![kubectl api-resources](images/08-api-resources.png)
 - `images/09-kube-system-pods.png` — `kubectl get pods -n kube-system`;
+
+![kubectl get pods -n kube-system](images/09-kube-system-pods.png)
 - `images/10-pod-apply.png` — применение `pod.yaml` и `kubectl get pods -o wide`;
+
+![применение pod.yaml и kubectl get pods -o wide](images/10-pod-apply.png)
 - `images/11-pvc-pv.png` — `kubectl get pvc,pv`;
+
+![kubectl get pvc,pv](images/11-pvc-pv.png)
 - `images/12-volume-logs.png` — `kubectl logs lab4-volume-demo`;
+
+![kubectl logs lab4-volume-demo](images/12-volume-logs.png)
 - `images/13-volume-mount.png` — `kubectl exec ... df/ls/cat`;
+
+![kubectl exec ... df/ls/cat](images/13-volume-mount.png)
 - `images/14-volume-persistence.png` — сохранение данных после пересоздания пода;
+
+![сохранение данных после пересоздания пода](images/14-volume-persistence.png)
 - `images/15-replicaset.png` — `kubectl get rs,pods -l app=lab4-rs -o wide`;
+
+![kubectl get rs,pods -l app=lab4-rs -o wide](images/15-replicaset.png)
 - `images/16-rs-selfheal.png` — удаление пода и появление нового.
+
+![удаление пода и появление нового.](images/16-rs-selfheal.png)
 
 ## 5. Ответы на контрольные вопросы
 
